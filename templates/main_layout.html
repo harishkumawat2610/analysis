@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if wallate == True %}
+        <div class="card text-center border-primary">
+  <div class="card-header border-primary bg-info">
+    <h5 class="font-weight-bold">Dream 11 Wallet Analysis Analysis</h5>
+  </div>
+  <div class="card-body">
+<div class="card-deck">
+  <div class="card bg-primary">
+    <div class="card-body text-center">
+      <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">Deposites</h1></p>
+        <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">{{cd}}</h1></p>
+    </div>
+  </div>
+    <br>
+  <div class="card bg-warning">
+    <div class="card-body text-center rounded">
+      <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">Withdrawals</h1></p>
+        <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">{{cw}}</h1></p>
+    </div>
+  </div>
+</div>
+      <br>
+      <div class="card-deck">
+      <div class="card bg-success">
+    <div class="card-body text-center">
+      <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">Profit</h1></p>
+         <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">{{wa_profit}}</h1></p>
+    </div>
+  </div>
+          <br>
+  <div class="card bg-danger">
+    <div class="card-body text-center">
+      <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">Lose</h1></p>
+        <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">{{wa_lose}}</h1></p>
+    </div>
+  </div>
+  </div>
+  </div>
+      </div>
+      {% endif %}
+      <br>
+      <br>
+      {% if invest == True %}
+      <div class="card text-center border-dark ">
+  <div class="card-header border-primary text-white bg-dark">
+    <h5 class="font-weight-bold">Dream 11 Investment Analysis</h5>
+  </div>
+  <div class="card-body">
+      <div class="card-deck">
+  <div class="card bg-primary">
+    <div class="card-body text-center">
+      <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold"> Investment</h1></p>
+        <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">{{i}}</h1></p>
+    </div>
+  </div>
+    <br>
+  <div class="card bg-warning">
+    <div class="card-body text-center rounded">
+      <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">Winnings</h1></p>
+        <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">{{wi}}</h1></p>
+    </div>
+  </div>
+</div>
+      <br>
+      <div class="card-deck">
+      <div class="card bg-success">
+    <div class="card-body text-center">
+      <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">Profit <span class='fas fa-arrow-up' style='font-size:36px'></span></h1></p>
+        <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">{{in_profit}}</h1></p>
+    </div>
+  </div>
+          <br>
+  <div class="card bg-danger">
+    <div class="card-body text-center">
+      <p class="card-text "><h1 class="text-white font-weight-bold">Lose <span class='fas fa-arrow-down' style='font-size:36px'></span></h1></p>
+        <p class="card-text font-weight-bold"><h1 class="text-white font-weight-bold">{{in_lose}} </h1></p>
+    </div>
+  </div>
+  </div>
+</div>
+      </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+  <div class="container-fluid">
+
+      <div class="card text-center border-dark">
+  <div class="card-header border-dark">
+    <h5>Dream 11 Analyser</h5>
+  </div>
+  <div class="card-body border-dark">
+    <h5 class="card-title">Investment Analysis && Wallet Analysis</h5>
+      <h5 class="card-title" id="harish"></h5>
+      <div>
+          <img class="card-img-top" src="{{url_for('static', filename='upload.png')}}" alt="Card image" style="width:15%">
+      </div>
+<div class="btn btn-primary">
+     <form action="calculate" method="post" enctype="multipart/form-data">
+        <input type="file" name="myFile" required = 'required' value=""/>
+       <input type="submit" name="" value="submit">
+</form>
+    </div>
+  </div>
+</div>
+  <!-------------------------------------------------------------------------------------------------->
+      {%if show_hidden== True%}
+       <div class="card text-center border-dark">
+  <div class="card-header bg-info border-dark ">
+    <h5>Filtters</h5>
+  </div>
+  <div class="card-body border-dark">
+    <form action="filter" method="post" enctype="multipart/form-data">
+      <div class="form-row">
+          <div class="col-4">
+            <label for="exampleFormControlSelect1"><h5 class="font-weight-bold">Time Priode</h5></label>
+    <select class="form-control" id="exampleFormControlSelect1" disabled name="timepriode" onchange="this.form.submit()">
+      <option  disabled>{{time_priode}}</option>
+      <option  value="Today" disabled>Today</option>
+      <option  value="Yesterday" disabled>Yesterday</option>
+      <option  value="7day" disabled>Last 7 days</option>
+      <option  value="30day" disabled>Last 30 Days</option>
+    </select>
+          </div>
+
+               <div class="col-4">
+      <label for="exampleFormControlSelect2"><h5 class="font-weight-bold"> <h1></h1>Tour-Wise</h5></label>
+    <select class="form-control" id="exampleFormControlSelect2"  name="alltour" onchange="this.form.submit()">
+      <option selected>{{tour_wise}}</option>
+      {%for i in tour_list %}
+        <option  value="{{i}}">{{i}}</option>
+      {% endfor %}
+
+    </select>
+               </div>
+                    <div class="col-4">
+                      <label for="exampleFormControlSelect3" ><h5 class="font-weight-bold">Select Match</h5></label>
+    <select class="form-control" id="exampleFormControlSelect3" name="allteam" onchange="this.form.submit()">
+      <option  selected>{{select_match}}</option>
+      {%for j in team_list %}
+
+        <option  value="{{j}}">{{j}}</option>
+      {% endfor %}
+    </select></div>
+      </div>
+      </form>
+
+    </div>
+           {% endif %}
+
+    {% block body %}
+
+    {% endblock %}
+
+      </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script type="text/javascript">
+    function getFilePath(){
+     $('input[type=file]').change(function () {
+         var filePath=$('#fileUpload').val();
+         document.getElementById("harish").innerHTML = filePath;
+     });
+}
+</script>
+  </body>
+</html>
