@@ -61,7 +61,7 @@ def calculate():
 @app.route("/filter", methods=['POST', 'GET'])
 def filter():
     if request.method == 'POST':
-        #time_priode = request.form.get('timepriode')
+    #time_priode = request.form.get('timepriode')
         time_priode=''
         tour_wise = request.form.get('alltour')
         select_match = request.form.get('allteam')
@@ -116,4 +116,5 @@ def filter():
                                select_match=select_match, )
 
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
